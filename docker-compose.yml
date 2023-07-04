@@ -1,0 +1,15 @@
+version: "3.9"
+networks:
+  default:
+    external:
+      name: k8s_net
+services:
+  k8s_t:
+    privileged: true
+    build: .
+    image: sinnudk8stest
+    container_name: k8s_test
+    hostname: debvmbox
+    ports:
+      - "8000:8000"
+    tty: true
