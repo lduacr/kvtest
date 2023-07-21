@@ -1,4 +1,4 @@
-import os
+import os, socket
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 from logzero import logger
@@ -34,7 +34,7 @@ class KeyVault(object):
         except:
             resp.body = traceback.format_exc()
             resp.body = f"{resp.body}\n\nFaild to obtain key vault for secret '{secret}'!!!\n"
-
+"""
 class KeyVaultSecret(object):
     def on_get(self, req, resp, kv, secret):
         resp.status = falcon.HTTP_200
@@ -52,11 +52,11 @@ class KeyVaultSecret(object):
         except:
             resp.body = traceback.format_exc()
             resp.body = f"{resp.body}\n\nFaild to obtain key vault for secret '{secret}'!!!\n"
-
+"""
 app.add_route('/', HelloWorld())
 # app.add_route('/{status}', Status())
 app.add_route('/{secret}', KeyVault())
-app.add_route('/{kv}/{secret}', KeyVaultSecret())
+# app.add_route('/{kv}/{secret}', KeyVaultSecret())
 
 # if __name__ == '__main__':
 #     from waitress import serve

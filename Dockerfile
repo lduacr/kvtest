@@ -11,5 +11,5 @@ WORKDIR /project
 EXPOSE 8000
 
 # CMD gunicorn --certfile=certificate.crt --keyfile=private.key -w 3 -b 0.0.0.0:8000 k8sapp:app
-CMD gunicorn -w 3 -b 0.0.0.0:8000 k8sapp:app
+CMD gunicorn -w 1 -b 0.0.0.0:8000 k8sapp:app
 
